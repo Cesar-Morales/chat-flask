@@ -2,7 +2,9 @@
 
 #### Clono repo
 
-`codigo clonar repo`
+```git
+    git clone https://github.com/Cesar-Morales/python-tests.git
+```
 
 #### Creo entorno virtual
 
@@ -27,3 +29,6 @@
 ```python3
     python3 main.py
 ```
+
+#### TODO
+> Conectar via lan
