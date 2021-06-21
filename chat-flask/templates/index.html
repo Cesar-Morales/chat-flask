@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SocketIO</title>
 </head>
+
 <body>
     <h1>Python and socketIO</h1>
+
+    <ul id="messages"></ul>
+    <input type="text" id="myMessage">
+    <button type="button" id="send">Send</button>
+
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- socketio -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"
+        integrity="sha512-iZIBSs+gDyTH0ZhUem9eQ1t4DcEn2B9lHxfRMeGQhyNdSUz+rb+5A3ummX6DQTOIs1XK0gOteOg/LPtSo9VJ+w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <!--socketio jquery-->
+    <script>
+        const socket = io();
+        //socket.emit('message', 'hello')
+
+        //Recv msg
+        socket.on('message', function (msg) {
+            $('#messages').append('<li>' + msg + '</li>');
+        })
+
+        //Send msg
+        $('#send').on('click', function () {
+            //console.log($('#myMessage').val());
+            socket.send($('#myMessage').val());
+            $('#myMessage').val('')
+        })
+        //$('#myMessage').val();
+    </script>
 </body>
+
 </html>
