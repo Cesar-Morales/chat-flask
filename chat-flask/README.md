@@ -21,3 +21,9 @@
 ```python3
     pip3 install -r requirements.txt
 ```
+
+#### Correr app
+
+```python3
+    python3 main.py
+```
